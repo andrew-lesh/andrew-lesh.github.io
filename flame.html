@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Astronaut Memorial - Flame of Remembrance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stars.css">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Laika" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+        #flame-container {
+            flex-grow: 1;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: calc(100vh - 80px);
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .flame-text {
+            position: absolute;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgb(255, 89, 0);
+            white-space: nowrap;
+            color: rgb(255, 0, 0);
+            opacity: 0;
+            transition: color 0.5s, opacity 0.5s;
+        }
+        #flame-text {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="star-fade-overlay"></div>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+    <header>
+        <img id="header-image" src="laika.jpg" alt="Header Image">
+        <div>
+            <h1 id="main-title">Animal Astronaut Memorial</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="timeline.html">Timeline</a></li>
+                    <li><a href="grid.html">Photo Wall</a></li>
+                    <li><a href="flame.html">Flame of Remembrance</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="flame-container"></div>
+    <div id="flame-text">Are not five sparrows sold for two pennies?&nbsp;&nbsp;Yet not one of them is forgotten in God's sight.&nbsp;&nbsp;(Luke 12:6)</div>
+    <script src="flame.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

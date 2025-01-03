@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#timeline-container {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+#timeline {
+    width: 100%;
+    height: 600px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.circle {
+    cursor: pointer;
+}
+
+#details {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-top: 25px;
+    width: 300px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+#victim-details {
+    width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.victim-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.victim-photo-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.victim-photo-name h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.victim-photo-name img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.victim-description {
+    flex: 1;
+}
+
+.victim-name {
+    cursor: pointer;
+}
+
+.victim-name.has-description {
+    font-weight: bold;
+}
+
+.victim-name.has-description:hover,
+.victim-name.has-description.clicked {
+    color: blue;
+    text-decoration: underline;
+}
+
+.event-description {
+    margin-bottom: 15px;
+}
+
+.event-description p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #victim-details {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #timeline-container {
+        height: auto;
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Astronaut Memorial - Timeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stars.css">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Laika" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="star-fade-overlay"></div>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+    <header>
+        <img id="header-image" src="laika.jpg" alt="Header Image">
+        <div>
+            <h1 id="main-title">Animal Astronaut Memorial</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="timeline.html">Timeline</a></li>
+                    <li><a href="grid.html">Photo Wall</a></li>
+                    <li><a href="flame.html">Flame of Remembrance</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="home-content">
+        <p style="margin-top: 5px; margin-bottom: -5px;">Each star below represents a space mission. Click a star to bring up that mission's data box.</p>
+        <p style="margin-top: 15px; margin-bottom: 10px;">Clicking on a bold animal name at the bottom of the data box will show you their photo and biography.</p>
+        <div id="default-legend">
+            <span style="font-size: 24px;"><b>Legend:</b></span> &nbsp;&nbsp;
+            <span style="color: rgb(255, 0, 0); font-size: 32px;">★</span> Monkey &nbsp;&nbsp;
+            <span style="color: rgb(0, 0, 255); font-size: 32px;">★</span> Dog &nbsp;&nbsp;
+            <span style="color: rgb(255, 255, 0); font-size: 32px;">★</span> Cat &nbsp;&nbsp;
+            <span style="color: rgb(0, 255, 0); font-size: 32px;">★</span> Rodent &nbsp;&nbsp;
+            <span style="color: rgb(255, 165, 0); font-size: 32px;">★</span> Bug &nbsp;&nbsp;
+            <span style="color: rgb(0, 255, 255); font-size: 32px;">★</span> Other &nbsp;&nbsp;
+            <span style="color: rgb(128, 0, 128); font-size: 32px;">★</span> Mixed
+        </div>
+        
+        <div id="colorblind-legend" style="display: none;">
+            <span style="font-size: 24px;"><b>Legend:</b></span> &nbsp;&nbsp;
+            <span style="color: rgb(230, 159, 0); font-size: 32px;">★</span> Monkey &nbsp;&nbsp;
+            <span style="color: rgb(0, 158, 115); font-size: 32px;">★</span> Dog &nbsp;&nbsp;
+            <span style="color: rgb(213, 94, 0); font-size: 32px;">★</span> Cat &nbsp;&nbsp;
+            <span style="color: rgb(86, 180, 233); font-size: 32px;">★</span> Rodent &nbsp;&nbsp;
+            <span style="color: rgb(240, 228, 66); font-size: 32px;">★</span> Bug &nbsp;&nbsp;
+            <span style="color: rgb(0, 114, 178); font-size: 32px;">★</span> Other &nbsp;&nbsp;
+            <span style="color: rgb(204, 121, 167); font-size: 32px;">★</span> Mixed
+        </div>
+        
+        <button id="colorToggle">Toggle Color-Blind Palette</button>
+    </main>
+
+    <div class="timeline-container">
+        <div id="fixed-y-axis"></div>
+        <div id="victim-details" style="display: none;"></div>
+        <div id="timeline-container">
+            <div id="timeline"></div>
+            <div id="details" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

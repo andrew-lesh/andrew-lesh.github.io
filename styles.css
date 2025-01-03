@@ -1,0 +1,676 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    min-width: 480px; /* Adjust as needed */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /*background-color: rgba(0, 0, 0, 0.5);
+    min-height: 70px; /* Adjust as needed */
+    /*box-sizing: border-box;
+    border-bottom: 5px solid rgba(128, 128, 128, 0.2);} */
+}
+
+#header-image {
+    height: 70px; /* Adjust this value as needed */
+    margin-right: 7px;
+    margin-left: 0px;
+    transform: rotate(2.5deg); /* Adjust the degree value for desired rotation */
+    transition: transform 0.3s ease; /* Optional: adds a smooth transition effect */
+}
+
+/* Optional: add a hover effect for some interactivity */
+#header-image:hover {
+    transform: rotate(-2.5deg);
+}
+
+#main-title {
+    color: #fff;
+    margin-top: 12px;
+    font-size: 32px; /* Base size */
+    white-space: nowrap;
+}
+
+#main-nav {
+    margin-left: -15px; /* This will align the nav with the title */
+    margin-top: -18px;
+}
+
+#main-nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin-top: -10px;
+}
+
+#main-nav ul li {
+    margin-left: 15px; /* Adjust spacing between nav items */
+    white-space: nowrap;
+}
+
+#main-nav ul li a {
+    font-size: 16px; /* Base size */
+    color: #fff;
+    text-decoration: none; /* Remove default underline */
+    transition: text-decoration 0.3s ease; /* Smooth transition for underline */
+}
+
+#main-nav ul li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+@media (max-width: 600px) {
+    #header-image { height: 60px; }
+    #main-title { font-size: 30px; }
+    #main-nav ul li a { font-size: 13px; }
+    #main-nav ul li { margin-left: 15px; }
+}
+
+
+.home-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    margin-top: -30px;
+}
+
+.home-content a {
+    color: #3498db;  /* This is a nice shade of blue, you can adjust as needed */
+    text-decoration: none;  /* This removes the default underline */
+    transition: text-decoration 0.3s ease;  /* This makes the underline appear smoothly */
+}
+
+.home-content a:hover {
+    text-decoration: underline;  /* This adds the underline on hover */
+}
+
+#gallery-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border: 2px solid #fff;
+    margin-top: 0px;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+#image-gallery {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.gallery-image {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #gallery-container {
+        height: 300px; /* Adjust this value as needed for mobile */
+    }
+}
+
+.info-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+#gallery-container:hover .info-bar {
+    transform: translateY(0);
+}
+
+.victim-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gallery-victim-name {
+    font-size: 1.2em;  /* Makes the text 20% larger. Adjust as needed */
+    font-weight: bold;
+    margin-bottom: 5px;  /* Adds some space between the name and event info */
+}
+
+.event-info {
+    font-size: 0.9em;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+.gallery-nav.prev {
+    left: 10px;
+}
+
+.gallery-nav.next {
+    right: 10px;
+}
+
+a {
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for timeline page */
+#fixed-y-axis {
+    position: absolute;
+    top: 0px; /* Adjust this value based on your layout */
+    left: 0px; /* Adjust this value based on your layout */
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+#fixed-y-axis.shifted {
+    left: 400px; /* 60px + 400px (width of victim info box) */
+}
+
+.timeline-container {
+    position: relative; /* Add this line */
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    overflow: visible;
+    margin-left: 60px; /* Adjust this to match the width of your y-axis */
+}
+
+
+
+
+
+
+#victim-details {
+    width: 400px;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    background: #000;
+    border: 2px solid #fff;
+    padding: 15px;
+    padding-top: 24px;
+    box-sizing: border-box;
+    color: #fff;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 
+        0 1px 1px rgba(255,255,255,0.3),
+        0 2px 2px rgba(255,255,255,0.2),
+        0 4px 4px rgba(255,255,255,0.1),
+        0 8px 8px rgba(255,255,255,0.05),
+        inset 0 1px 1px rgba(255,255,255,0.3),
+        inset 0 2px 2px rgba(255,255,255,0.2),
+        inset 0 4px 4px rgba(255,255,255,0.1),
+        inset 0 8px 8px rgba(255,255,255,0.05);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#victim-details.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#victim-details::-webkit-scrollbar {
+    width: 8px;
+}
+
+#victim-details::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#victim-details::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+#victim-details::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.victim-info {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.victim-close-button {
+    position: absolute;
+    top: -1px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+    transition: color 0.3s, font-size 0.3s;
+}
+
+.victim-close-button:hover {
+    color: #fff;
+    font-size: 32px;
+}
+
+
+
+
+
+
+
+#timeline-container {
+    position: relative;
+    flex: 1;
+    height: 600px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+}
+
+/* Ensure the main timeline SVG doesn't create a horizontal scrollbar */
+#timeline {
+    position: relative;
+    height: 100%;
+    margin-left: 0; /* Remove any left margin */
+}
+.circle {
+    cursor: pointer;
+}
+
+
+#details {
+    position: absolute;
+    z-index: 1000;
+    background: #000;
+    border: 2px solid #fff;
+    padding: 15px;
+    padding-top: 24px;
+    box-shadow: 
+        0 1px 1px rgba(255,255,255,0.3),
+        0 2px 2px rgba(255,255,255,0.2),
+        0 4px 4px rgba(255,255,255,0.1),
+        0 8px 8px rgba(255,255,255,0.05),
+        inset 0 1px 1px rgba(255,255,255,0.3),
+        inset 0 2px 2px rgba(255,255,255,0.2),
+        inset 0 4px 4px rgba(255,255,255,0.1),
+        inset 0 8px 8px rgba(255,255,255,0.05);
+    width: 300px;
+    max-height: 400px; /* Set a fixed maximum height */
+    box-sizing: border-box;
+    color: #fff;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#details.visible, #victim-details.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#details-content {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 10px;
+    max-height: calc(400px - 30px); /* Adjust for padding and close button */
+}
+
+/* Scrollbar styles remain the same */
+
+/* Scrollbar styles */
+#details-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#details-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#details-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+#details-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+/* Scrollbar styles */
+#timeline-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+#timeline-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#timeline-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+#timeline-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.close-button {
+    position: absolute;
+    top: -1px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #fff;
+    font-size: 32px;
+}
+
+.victim-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Add this line for horizontal centering */
+}
+
+.victim-photo-name img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px; /* Add this line for beveled corners */
+}
+
+.victim-photo-name h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.victim-photo-name img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.victim-name {
+    font-weight: normal;
+    font-size: 1em; /* Make non-clickable names slightly smaller */
+}
+
+.victim-name.has-description {
+    font-weight: bold;
+    font-size: 1.2em; /* Keep clickable names at normal size */
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.victim-name.has-description:hover {
+    text-decoration: underline;
+    color: #3498db;
+}
+
+.victim-name.has-description.clicked {
+    text-decoration: underline;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.event-description {
+    margin-bottom: 15px;
+}
+
+.event-description p {
+    margin-bottom: 10px;
+}
+
+.y-axis line {
+    stroke: #fff;
+}
+
+.y-axis path {
+    stroke: #fff;;
+}
+
+.star {
+    cursor: pointer;
+    transition: r 0.2s ease;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.star:hover {
+    z-index: 10;
+}
+
+.star.active {
+    stroke: white;
+    stroke-width: 4px;
+}
+
+
+/* Styles for photo grid page */
+#photo-grid {
+    padding-top: 150px; /* Adjust this value as needed */
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.grid-item {
+    position: absolute;
+    width: 200px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+}
+
+.grid-item:hover {
+    transform: scale(1.6);
+    z-index: 2;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.grid-item .info-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.grid-item:hover .info-bar {
+    transform: translateY(0);
+}
+
+.grid-item .gallery-victim-name {
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.grid-item .event-info {
+    font-size: 0.5em;
+}
+
+
+@media (max-width: 768px) {
+    .timeline-container {
+        flex-direction: column;
+        height: auto;
+        position: relative; /* Ensure positioning context */
+    }
+
+    #timeline-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        order: 1;
+    }
+
+    #victim-details {
+        width: 100%;
+        max-height: 50vh;
+        position: static;
+        border-right: none;
+        border-top: 1px solid #333;
+        order: 2;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #fixed-y-axis {
+        position: absolute;
+        bottom: 10px; /* Keep the same as desktop */
+        left: 0px; /* Keep the same as desktop */
+    }
+
+    #fixed-y-axis.shifted {
+        bottom: 350px;
+        left: 0px; /* Don't shift on mobile */
+    }
+
+    .grid-item:hover {
+        transform: scale(1.3);
+        z-index: 2;
+    }
+}
+
+#flame-text {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0; /* Start with the text invisible */
+    transition: opacity 1.5s ease-in-out; /* Smooth transition for fading in */
+}
+
+#grid-intro-text {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#content-wrapper {
+    position: relative;
+    
+}
+
+.bg-animation {
+    z-index: -1;
+}
+
+#colorToggle {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;  /* Makes the button rounder */
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Smooth transition for all changes */
+}
+
+#colorToggle:hover {
+    transform: scale(1.1);  /* Enlarges the button by 10% when hovered */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);  /* Adds a subtle glow effect */
+}
